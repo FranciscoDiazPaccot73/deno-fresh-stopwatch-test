@@ -61,18 +61,26 @@ export default function Home({ data }: PageProps<WeatherData | null>) {
           <div style={{ position: "relative" }}>
             <div style={{
               position: "absolute",
-              right: 0
-            }}>{data?.temp}</div>
+              right: "-4px",
+              fontSize: "20px",
+              top: "10px",
+              fontWeight: 600
+              }}>{`${Math.floor(data?.temp || 0)}° C`}</div>
             <img style={{ height: "50px", width: "50px" }} src={`http://openweathermap.org/img/w/${data?.icon}.png`} alt={data?.description} ></img>
-            <div>{data?.name}</div>
-            <div>
-              <span>{data?.main}</span>
-              <span>{data?.description}</span>
+            <div style={{ marginTop: "-18px" }}>
+              <div>
+                <span style={{ fontSize: "14px", marginRight: "4px" }}>{data?.name}</span>
+                  &bull;
+                <span style={{ fontSize: "14px", marginLeft: "4px" }}>{data?.main}</span>
+              </div>
+              <span style={{ fontSize: "12px" }}>{data?.description}</span>
             </div>
           </div>
         </div>
       </div>
-      <p> Stopwatch using Fresh</p>
+      <p style={{
+        fontSize: '20px'
+      }}> Stopwatch using Fresh</p>
       <Stopwatch />
     </div>
   );
